@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+
+    //ナビゲーションのセーフアーギス
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
