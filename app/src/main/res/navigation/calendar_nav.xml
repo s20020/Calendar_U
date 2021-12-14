@@ -29,5 +29,36 @@
         <argument android:name="day"
             app:argType="integer"
             android:defaultValue="0" />
+        <action
+            android:id="@+id/action_todayScheduleFragment_to_newCreateFragment"
+            app:destination="@id/newCreateFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/newCreateFragment"
+        android:name="jp.ac.it_college.std.s20020.calendar_u.NewCreateFragment"
+        android:label="fragment_new_create"
+        tools:layout="@layout/fragment_new_create" >
+        <action
+            android:id="@+id/action_newCreateFragment_to_itemSelectFragment"
+            app:destination="@id/itemSelectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newItemCreateFragment"
+        android:name="jp.ac.it_college.std.s20020.calendar_u.NewItemCreateFragment"
+        android:label="fragment_new_item_create"
+        tools:layout="@layout/fragment_new_item_create" />
+    <fragment
+        android:id="@+id/itemSelectFragment"
+        android:name="jp.ac.it_college.std.s20020.calendar_u.ItemSelectFragment"
+        android:label="fragment_item_select"
+        tools:layout="@layout/fragment_item_select" >
+        <action
+            android:id="@+id/action_itemSelectFragment_to_newItemCreateFragment"
+            app:destination="@id/newItemCreateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/templateFragment"
+        android:name="jp.ac.it_college.std.s20020.calendar_u.TemplateFragment"
+        android:label="fragment_template"
+        tools:layout="@layout/fragment_template" />
 </navigation>
