@@ -11,12 +11,23 @@
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
-            android:id="@+id/action_startFragment_to_todayDoFragment3"
-            app:destination="@id/todayDoFragment" />
+            android:id="@+id/action_startFragment_to_todayScheduleFragment"
+            app:destination="@id/todayScheduleFragment" />
     </fragment>
     <dialog
-        android:id="@+id/todayDoFragment"
-        android:name="jp.ac.it_college.std.s20020.calendar_u.TodayDoFragment"
-        android:label="fragment_today_do_list_dialog"
-        tools:layout="@layout/fragment_today_do_list_dialog" />
+        android:id="@+id/todayScheduleFragment"
+        android:name="jp.ac.it_college.std.s20020.calendar_u.TodayScheduleFragment"
+        android:label="fragment_today_schedule"
+        tools:layout="@layout/fragment_today_schedule" >
+        <argument
+            android:name="year"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument android:name="month"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument android:name="day"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </dialog>
 </navigation>

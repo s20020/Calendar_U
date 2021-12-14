@@ -31,10 +31,12 @@ class StartFragment : Fragment() {
             requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         // NavController取得
         val navController = navHostFragment.navController
-        //アクション
-        val action = StartFragmentDirections.actionStartFragmentToTodayDoFragment3()
+
+
 
         binding.calendarView.setOnDateChangeListener { view, year, month, dayOffMonth ->
+            //アクション
+            val action = StartFragmentDirections.actionStartFragmentToTodayScheduleFragment(year,month,dayOffMonth)
             navController.navigate(action)
         }
 
