@@ -11,8 +11,8 @@
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
-            android:id="@+id/action_startFragment_to_todayScheduleFragment"
-            app:destination="@id/todayScheduleFragment" />
+            android:id="@+id/action_startFragment_to_newCreateFragment"
+            app:destination="@id/newCreateFragment" />
     </fragment>
     <dialog
         android:id="@+id/todayScheduleFragment"
@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_newCreateFragment_to_itemSelectFragment"
             app:destination="@id/itemSelectFragment" />
+        <action
+            android:id="@+id/action_newCreateFragment_to_templateFragment"
+            app:destination="@id/templateFragment" />
     </fragment>
     <fragment
         android:id="@+id/newItemCreateFragment"
