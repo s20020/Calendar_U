@@ -3,6 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="back">戻る</string>
+    <string name="completion">完了</string>
 
     <string-array name="today_do_list">
         <item>たいが</item>

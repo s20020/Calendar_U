@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentStartBinding
@@ -35,14 +36,30 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
 
         // 選ばれた日付ごとのタイトルを設定。
         setTodayTitle()
-
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // NavHostの取得
+        val navHostFragment =
+            requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        // NavController取得
+        val navController = navHostFragment.navController
+
+        binding.newCreate.setOnClickListener {
+            //アクション
+            val action = TodayScheduleFragmentDirections.actionTodayScheduleFragmentToNewCreateFragment()
+            navController.navigate(action)
+        }
+    }
+
         fun setTodayTitle() {
             year = args.year
             month = args.month
             day = args.day
             binding.todaytitle.text = "${year}年${month}月${day}日の日程"
+
+
         }
 
 }

@@ -36,7 +36,7 @@ class StartFragment : Fragment() {
 
         binding.calendarView.setOnDateChangeListener { view, year, month, dayOffMonth ->
             //アクション
-            val action = StartFragmentDirections.actionStartFragmentToTodayScheduleFragment(year,month,dayOffMonth)
+            val action = StartFragmentDirections.actionStartFragmentToTodayScheduleFragment(year,month,dayOffMonth, "unnko")
             navController.navigate(action)
         }
 

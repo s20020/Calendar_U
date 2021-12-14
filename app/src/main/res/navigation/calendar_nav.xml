@@ -11,8 +11,8 @@
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
-            android:id="@+id/action_startFragment_to_newCreateFragment"
-            app:destination="@id/newCreateFragment" />
+            android:id="@+id/action_startFragment_to_todayScheduleFragment"
+            app:destination="@id/todayScheduleFragment" />
     </fragment>
     <dialog
         android:id="@+id/todayScheduleFragment"
@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_todayScheduleFragment_to_newCreateFragment"
             app:destination="@id/newCreateFragment" />
+        <argument
+            android:name="taiag"
+            app:argType="string" />
     </dialog>
     <fragment
         android:id="@+id/newCreateFragment"
@@ -63,5 +66,9 @@
         android:id="@+id/templateFragment"
         android:name="jp.ac.it_college.std.s20020.calendar_u.TemplateFragment"
         android:label="fragment_template"
-        tools:layout="@layout/fragment_template" />
+        tools:layout="@layout/fragment_template" >
+        <action
+            android:id="@+id/action_templateFragment_to_newCreateFragment"
+            app:destination="@id/newCreateFragment" />
+    </fragment>
 </navigation>
