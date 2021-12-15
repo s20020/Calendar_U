@@ -131,9 +131,6 @@ class NewCreateFragment : Fragment() {
 
         stmt.executeInsert()
     }
-
-
-
 }
 
 
