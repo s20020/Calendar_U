@@ -14,15 +14,15 @@
         android:text=":"
         android:textAlignment="center"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/s_hour"
-        app:layout_constraintStart_toEndOf="@+id/s_hour"
-        app:layout_constraintTop_toTopOf="@+id/s_hour"
+        app:layout_constraintBottom_toBottomOf="@+id/sHour"
+        app:layout_constraintStart_toEndOf="@+id/sHour"
+        app:layout_constraintTop_toTopOf="@+id/sHour"
         app:layout_constraintVertical_bias="0.483" />
 
     <Button
         android:id="@+id/Back"
-        android:layout_width="71dp"
-        android:layout_height="40dp"
+        android:layout_width="79dp"
+        android:layout_height="49dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="戻る"
@@ -31,8 +31,8 @@
 
     <EditText
         android:id="@+id/Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="261dp"
+        android:layout_height="52dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="題名"
@@ -79,8 +79,8 @@
 
     <Button
         android:id="@+id/newCreateOk"
-        android:layout_width="64dp"
-        android:layout_height="39dp"
+        android:layout_width="71dp"
+        android:layout_height="53dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/completion"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <NumberPicker
-        android:id="@+id/s_hour"
+        android:id="@+id/sHour"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <NumberPicker
-        android:id="@+id/s_minute"
+        android:id="@+id/sMinute"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
@@ -104,7 +104,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <NumberPicker
-        android:id="@+id/e_hour"
+        android:id="@+id/eHour"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
@@ -112,7 +112,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <NumberPicker
-        android:id="@+id/e_minute"
+        android:id="@+id/eMinute"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
@@ -127,9 +127,9 @@
         android:textAlignment="center"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/s_hour"
-        app:layout_constraintStart_toEndOf="@+id/s_hour"
-        app:layout_constraintTop_toTopOf="@+id/s_hour" />
+        app:layout_constraintBottom_toBottomOf="@+id/sHour"
+        app:layout_constraintStart_toEndOf="@+id/sHour"
+        app:layout_constraintTop_toTopOf="@+id/sHour" />
 
     <TextView
         android:id="@+id/textView3"
@@ -139,9 +139,9 @@
         android:textAlignment="center"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/e_hour"
-        app:layout_constraintStart_toEndOf="@+id/e_hour"
-        app:layout_constraintTop_toTopOf="@+id/e_hour" />
+        app:layout_constraintBottom_toBottomOf="@+id/eHour"
+        app:layout_constraintStart_toEndOf="@+id/eHour"
+        app:layout_constraintTop_toTopOf="@+id/eHour" />
 
     <TextView
         android:id="@+id/textView4"
@@ -164,7 +164,7 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/s_hour"
+        app:layout_constraintEnd_toStartOf="@+id/sHour"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />

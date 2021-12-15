@@ -15,13 +15,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
     override fun onCreate(db: SQLiteDatabase?) {
         val creatTable_main = """
             CREATE TABLE SCHEDULE (
-            _id LONG PRIMARY KEY,
+            _id LONG,
             date TEXT,
             title TEXT,
-            s_hour INTEGER
-            s_minute INTEGER
-            e_hour INTEGER
-            e_minute INTEGER
+            s_time TEXT,
+            e_time TEXT,
             memo TEXT
             );
         """.trimIndent()
