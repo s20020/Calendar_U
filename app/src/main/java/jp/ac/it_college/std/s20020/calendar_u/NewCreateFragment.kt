@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.navArgs
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentNewCreateBinding
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentStartBinding
 import java.util.*
@@ -28,6 +29,8 @@ class NewCreateFragment : Fragment() {
     var s_time = ""
     var e_time = ""
     var memo = ""
+
+    val args: TodayScheduleFragmentArgs by navArgs()
 
 
     private lateinit var _helper: DatabaseHelper
@@ -102,10 +105,13 @@ class NewCreateFragment : Fragment() {
         editor.putLong("INDEX", a)
         editor.apply()
 
+        val month = args.month.toString().padStart(2,'0')
+        val day = args.month.toString().padStart(2,'0')
+
 
 
         _id = a
-        date = "taiga"
+        date = "${args.year}-${month}-${day}"
         title = binding.Name.text.toString()
         s_time = "${hour[binding.sHour.value]}:${minute[binding.sMinute.value]}"
         e_time = "${hour[binding.eHour.value]}:${minute[binding.eMinute.value]}"

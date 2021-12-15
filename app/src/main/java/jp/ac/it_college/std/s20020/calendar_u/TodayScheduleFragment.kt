@@ -48,7 +48,7 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
 
         binding.newCreate.setOnClickListener {
             //アクション
-            val action = TodayScheduleFragmentDirections.actionTodayScheduleFragmentToNewCreateFragment()
+            val action = TodayScheduleFragmentDirections.actionTodayScheduleFragmentToNewCreateFragment(year, month, day)
             navController.navigate(action)
         }
     }

@@ -32,9 +32,6 @@
         <action
             android:id="@+id/action_todayScheduleFragment_to_newCreateFragment"
             app:destination="@id/newCreateFragment" />
-        <argument
-            android:name="taiag"
-            app:argType="string" />
     </dialog>
     <fragment
         android:id="@+id/newCreateFragment"
@@ -47,6 +44,15 @@
         <action
             android:id="@+id/action_newCreateFragment_to_templateFragment"
             app:destination="@id/templateFragment" />
+        <argument
+            android:name="year"
+            app:argType="integer" />
+        <argument
+            android:name="month"
+            app:argType="integer" />
+        <argument
+            android:name="day"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/newItemCreateFragment"
