@@ -51,7 +51,7 @@ class NewCreateFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //NumberPicerの値をリストでセット
+        //NumberPickerの値をリストでセット
         binding.sHour.minValue = 0
         binding.sHour.maxValue = hour.size - 1
         binding.sHour.displayedValues = hour
@@ -86,6 +86,9 @@ class NewCreateFragment : Fragment() {
 
         binding.Back.setOnClickListener{
             findNavController().popBackStack()
+        }
+        binding.Usually.setOnClickListener {
+            findNavController().navigate(R.id.action_newCreateFragment_to_templateFragment)
         }
 
 
@@ -143,6 +146,7 @@ class NewCreateFragment : Fragment() {
 
 
     }
-}
 
+
+}
 
