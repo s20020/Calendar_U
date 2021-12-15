@@ -93,17 +93,23 @@ class NewCreateFragment : Fragment() {
 
     val sharedPref = this.requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
 
-//        val editor = sharedPref.edit()
+        val editor = sharedPref.edit()
 //        editor.putLong("INDEX", 1)
 //        editor.apply()
 
 
+
+
         println(sharedPref.getLong("INDEX", 0).plus(1) )
 
-         val a = sharedPref.getLong("INDEX", 0)
+        val a = sharedPref.getLong("INDEX", 0).plus(1)
+
+        editor.putLong("INDEX", a)
+        editor.apply()
 
 
-        _id = a + 1
+
+        _id = a
         date = "taiga"
         title = binding.Name.text.toString()
         s_time = "${binding.sHour.value}:${binding.sMinute.value}"
