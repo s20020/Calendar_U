@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentNewCreateBinding
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentStartBinding
@@ -50,15 +51,14 @@ class NewCreateFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //NumberPicerの値をリストでセット
         binding.sHour.minValue = 0
         binding.sHour.maxValue = hour.size - 1
         binding.sHour.displayedValues = hour
 
-
         binding.sMinute.minValue = 0
         binding.sMinute.maxValue = minute.size -1
         binding.sMinute.displayedValues = minute
-
 
         binding.eHour.minValue = 0
         binding.eHour.maxValue = hour.size -1
@@ -78,9 +78,16 @@ class NewCreateFragment : Fragment() {
             VALUES(?, ?, ?, ?, ?, ?)
         """.trimIndent()
 
-        binding.newCreateOk.setOnClickListener{
+        //完了ボタン
+        binding.newCreateOk.setOnClickListener {
             dateInsert(insert)
+
         }
+
+        binding.Back.setOnClickListener{
+            findNavController().popBackStack()
+        }
+
 
 
 
@@ -92,24 +99,23 @@ class NewCreateFragment : Fragment() {
         super.onDestroy()
     }
 
+    //完了ボタン 新規日程をデータベースへ格納
     fun dateInsert(insert: String) {
 
-    val sharedPref = this.requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
-
+        //_idの連番のための保存領域インスタンスを生成。
+        val sharedPref = this.requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
-//        editor.putLong("INDEX", 1)
-//        editor.apply()
 
-        println(sharedPref.getLong("INDEX", 0).plus(1) )
+        //insertが実行されるたびに_idを+1
         val a = sharedPref.getLong("INDEX", 0).plus(1)
         editor.putLong("INDEX", a)
         editor.apply()
 
+        //month,dayを０で穴埋め
         val month = args.month.toString().padStart(2,'0')
-        val day = args.month.toString().padStart(2,'0')
+        val day = args.day.toString().padStart(2,'0')
 
-
-
+        //データベース各項目の値を取得
         _id = a
         date = "${args.year}-${month}-${day}"
         title = binding.Name.text.toString()
@@ -117,15 +123,14 @@ class NewCreateFragment : Fragment() {
         e_time = "${hour[binding.eHour.value]}:${minute[binding.eMinute.value]}"
         memo = binding.Memo.text.toString()
 
-        println(s_time)
-        println(e_time)
-
         //データベース接続オブジェクトを取得
         val db = _helper.writableDatabase
 
 
+        //SQL文字列をもとにプリペアドステートメントを取得
         val stmt = db.compileStatement(insert)
 
+        //
         stmt.bindLong(1, _id)
         stmt.bindString(2, date)
         stmt.bindString(3, title)
@@ -133,7 +138,10 @@ class NewCreateFragment : Fragment() {
         stmt.bindString(5,e_time)
         stmt.bindString(6, memo)
 
+        //データベースへのinsert実行。
         stmt.executeInsert()
+
+
     }
 }
 
