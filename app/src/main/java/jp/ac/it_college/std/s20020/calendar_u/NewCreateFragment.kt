@@ -106,9 +106,6 @@ class NewCreateFragment : Fragment() {
         stmt.bindLong(7, e_minute)
         stmt.bindString(8, memo)
     }
-
-
-
 }
 
 
