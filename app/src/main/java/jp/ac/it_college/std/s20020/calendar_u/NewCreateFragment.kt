@@ -21,7 +21,7 @@ import java.util.*
 
 class NewCreateFragment : Fragment() {
     val minute = arrayOf("00", "05", "15", "20", "25", "30", "35", "40", "45", "50", "55")
-    val hour = arrayOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23")
+    val hour = arrayOf("00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23")
     var _id: Long = 0
     var date = ""
     var title = ""
@@ -97,13 +97,8 @@ class NewCreateFragment : Fragment() {
 //        editor.putLong("INDEX", 1)
 //        editor.apply()
 
-
-
-
         println(sharedPref.getLong("INDEX", 0).plus(1) )
-
         val a = sharedPref.getLong("INDEX", 0).plus(1)
-
         editor.putLong("INDEX", a)
         editor.apply()
 
@@ -112,9 +107,12 @@ class NewCreateFragment : Fragment() {
         _id = a
         date = "taiga"
         title = binding.Name.text.toString()
-        s_time = "${binding.sHour.value}:${binding.sMinute.value}"
-        e_time = "${binding.eHour.value}:${binding.eMinute.value}"
+        s_time = "${hour[binding.sHour.value]}:${minute[binding.sMinute.value]}"
+        e_time = "${hour[binding.eHour.value]}:${minute[binding.eMinute.value]}"
         memo = binding.Memo.text.toString()
+
+        println(s_time)
+        println(e_time)
 
         //データベース接続オブジェクトを取得
         val db = _helper.writableDatabase
