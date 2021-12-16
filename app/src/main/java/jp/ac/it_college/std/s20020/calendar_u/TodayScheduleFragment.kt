@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.LinearLayout
+import android.widget.ListAdapter
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentStartBinding
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentTodayScheduleBinding
@@ -27,7 +31,7 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
     var e_time = ""
     var memo = ""
 
-    var list = mutableListOf<List<String>>()
+    var list = arrayListOf<List<String>>()
 
     val args: TodayScheduleFragmentArgs by navArgs()
 
@@ -112,6 +116,16 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
             i++
         }
         println(list)
+
+        val a = arrayOf("taiga", "akito", "ken")
+
+        val viewManager = LinearLayoutManager(context)
+        val viewAdapter = CustomAdapter(a)
+
+        binding.toDoList.layoutManager = viewManager
+        binding.toDoList.adapter = viewAdapter
+
+
 
 
     }
