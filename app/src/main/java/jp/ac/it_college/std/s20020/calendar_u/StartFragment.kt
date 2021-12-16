@@ -8,12 +8,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentStartBinding
+import java.time.Year
 
 
 class StartFragment : Fragment() {
 
+    private var Year = ""
+    private var Month = ""
+    private var Day = ""
+
     private var _binding : FragmentStartBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var _helper: DatabaseHelper
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +33,13 @@ class StartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        //DatabaseHelperオブジェクトを生成
+        _helper = DatabaseHelper(requireContext())
+
+
+
+
+
         // NavHostの取得
         val navHostFragment =
             requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -34,11 +48,50 @@ class StartFragment : Fragment() {
 
 
 
-        binding.calendarView.setOnDateChangeListener { view, year, month, dayOffMonth ->
+        binding.calendarView.setOnDateChangeListener { view, year, month, day ->
+            datebaseSelect(year, month+1, day)
             //アクション
-            val action = StartFragmentDirections.actionStartFragmentToTodayScheduleFragment(year,month,dayOffMonth)
+            val action = StartFragmentDirections.actionStartFragmentToTodayScheduleFragment(year,month+1,day)
             navController.navigate(action)
         }
+
+    }
+
+    override fun onDestroy() {
+        _helper.close()
+        super.onDestroy()
+    }
+
+    fun datebaseSelect(year: Int, month: Int, day: Int) {
+
+
+        Month = month.toString().padStart(2,'0')
+        Day = day.toString().padStart(2,'0')
+
+        val select = """
+            SELECT title, s_time, e_time, memo FROM SCHEDULE
+            WHERE date = "${year}-${Month}-${Day}"
+        """.trimIndent()
+
+        println(select)
+
+        //データベース接続オブジェクト取得
+        val db = _helper.writableDatabase
+
+
+        var s_time = ""
+        val c = db.rawQuery(select, null)
+        if(c.moveToNext()){
+            val cTitle = c.getColumnIndex("s_time")
+            s_time = c.getString(cTitle)
+            println(s_time)
+        }
+        else {
+            println("予定なし")
+        }
+
+
+
 
     }
 
