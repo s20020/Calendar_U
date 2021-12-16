@@ -1,9 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreateTemplate">
+
+
+    <Button
+        android:id="@+id/Back2"
+        android:layout_width="79dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="戻る"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Name2"
+        android:layout_width="261dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="題名"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Back2" />
+
+    <Button
+        android:id="@+id/type2"
+        android:layout_width="204dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:text="種類"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name2" />
+
+    <EditText
+        android:id="@+id/Memo2"
+        android:layout_width="364dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="メモ"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FinishedText" />
+
+    <Button
+        android:id="@+id/newCreateOk2"
+        android:layout_width="71dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="保存"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <NumberPicker
+        android:id="@+id/sHour2"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/StartText"
+        app:layout_constraintStart_toEndOf="@+id/StartText"
+        app:layout_constraintTop_toTopOf="@+id/StartText" />
+
+    <NumberPicker
+        android:id="@+id/sMinute2"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/TextBold"
+        app:layout_constraintStart_toEndOf="@+id/TextBold"
+        app:layout_constraintTop_toTopOf="@+id/TextBold" />
+
+    <NumberPicker
+        android:id="@+id/eHour2"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/FinishedText"
+        app:layout_constraintStart_toEndOf="@+id/FinishedText"
+        app:layout_constraintTop_toTopOf="@+id/FinishedText" />
+
+    <NumberPicker
+        android:id="@+id/eMinute2"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/TextBold2"
+        app:layout_constraintStart_toEndOf="@+id/TextBold2"
+        app:layout_constraintTop_toTopOf="@+id/TextBold2" />
+
+    <TextView
+        android:id="@+id/TextBold"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        android:text=":"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/sHour2"
+        app:layout_constraintStart_toEndOf="@+id/sHour2"
+        app:layout_constraintTop_toTopOf="@+id/sHour2" />
+
+    <TextView
+        android:id="@+id/TextBold2"
+        android:layout_width="26dp"
+        android:layout_height="48dp"
+        android:text=":"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/eHour2"
+        app:layout_constraintStart_toEndOf="@+id/eHour2"
+        app:layout_constraintTop_toTopOf="@+id/eHour2" />
+
+    <TextView
+        android:id="@+id/StartText"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="60dp"
+        android:text="開始時間"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type2" />
+
+    <TextView
+        android:id="@+id/FinishedText"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="104dp"
+        android:text="終了時間"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/StartText"
+        app:layout_constraintStart_toStartOf="@+id/StartText"
+        app:layout_constraintTop_toBottomOf="@+id/StartText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
