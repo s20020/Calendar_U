@@ -79,13 +79,20 @@ class StartFragment : Fragment() {
         val db = _helper.writableDatabase
 
 
+        var s_time = ""
         val c = db.rawQuery(select, null)
-        c.moveToNext()
+        if(c.moveToNext()){
+            val cTitle = c.getColumnIndex("s_time")
+            s_time = c.getString(cTitle)
+            println(s_time)
+        }
+        else {
+            println("予定なし")
+        }
 
-        val cTitle = c.getColumnIndex("title")
-        val title = c.getString(cTitle)
 
-        println(title)
+
+
     }
 
 
