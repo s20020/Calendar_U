@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calendar_U</string>
+    <string name="app_name">マイカレ</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="back">戻る</string>

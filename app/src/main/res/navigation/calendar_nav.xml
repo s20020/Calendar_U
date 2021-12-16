@@ -76,5 +76,13 @@
         <action
             android:id="@+id/action_templateFragment_to_newCreateFragment"
             app:destination="@id/newCreateFragment" />
+        <action
+            android:id="@+id/action_templateFragment_to_createTemplate"
+            app:destination="@id/createTemplate" />
     </fragment>
+    <fragment
+        android:id="@+id/createTemplate"
+        android:name="jp.ac.it_college.std.s20020.calendar_u.CreateTemplate"
+        android:label="fragment_create_template"
+        tools:layout="@layout/fragment_create_template" />
 </navigation>

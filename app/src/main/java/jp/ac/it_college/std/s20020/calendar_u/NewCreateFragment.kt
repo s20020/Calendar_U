@@ -91,9 +91,6 @@ class NewCreateFragment : Fragment() {
             findNavController().navigate(R.id.action_newCreateFragment_to_templateFragment)
         }
 
-
-
-
     }
 
     override fun onDestroy() {
