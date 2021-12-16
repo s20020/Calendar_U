@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_todayScheduleFragment_to_newCreateFragment"
             app:destination="@id/newCreateFragment" />
+        <argument
+            android:name="myArray"
+            app:argType="long[]" />
     </dialog>
     <fragment
         android:id="@+id/newCreateFragment"
