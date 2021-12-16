@@ -81,12 +81,14 @@ class NewCreateFragment : Fragment() {
         //完了ボタン
         binding.newCreateOk.setOnClickListener {
             dateInsert(insert)
+            findNavController().popBackStack()
 
         }
 
         binding.Back.setOnClickListener{
             findNavController().popBackStack()
         }
+
         binding.Usually.setOnClickListener {
             findNavController().navigate(R.id.action_newCreateFragment_to_templateFragment)
         }
