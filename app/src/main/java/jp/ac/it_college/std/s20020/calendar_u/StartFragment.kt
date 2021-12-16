@@ -14,13 +14,9 @@ import kotlin.math.ceil
 
 class StartFragment : Fragment() {
 
-    var title = ""
-    var s_time = ""
-    var e_time = ""
-    var memo = ""
+    var myArray = arrayListOf<Long>()
 
-    val myArray = arrayListOf<ArrayList<String>>()
-
+    var _id: Long = 0
 
     private var Year = ""
     private var Month = ""
@@ -48,9 +44,6 @@ class StartFragment : Fragment() {
         _helper = DatabaseHelper(requireContext())
 
 
-
-
-
         // NavHostの取得
         val navHostFragment =
             requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -60,75 +53,54 @@ class StartFragment : Fragment() {
 
 
         binding.calendarView.setOnDateChangeListener { view, year, month, day ->
-            datebaseSelect(year, month+1, day)
+            idSelect(year, month+1, day)
             //アクション
-            val action = StartFragmentDirections.actionStartFragmentToTodayScheduleFragment(year,month+1,day)
+            val action = StartFragmentDirections.actionStartFragmentToTodayScheduleFragment(year,month+1,day, myArray.toLongArray())
+            //idのリストを空にする。
+            myArray.clear()
             navController.navigate(action)
         }
 
     }
 
     override fun onDestroy() {
+
         _helper.close()
         super.onDestroy()
     }
 
-    fun datebaseSelect(year: Int, month: Int, day: Int) {
+    fun idSelect(year: Int, month: Int, day: Int) {
 
 
         Month = month.toString().padStart(2,'0')
         Day = day.toString().padStart(2,'0')
 
         val select = """
-            SELECT title, s_time, e_time, memo FROM SCHEDULE
+            SELECT _id FROM SCHEDULE
             WHERE date = "${year}-${Month}-${Day}"
         """.trimIndent()
 
         //データベース接続オブジェクト取得
         val db = _helper.writableDatabase
 
-
-
         val c = db.rawQuery(select, null)
         if(c.moveToNext()){
-            val cTitle = c.getColumnIndex("title")
-            title = c.getString(cTitle)
-            val cStime = c.getColumnIndex("s_time")
-            s_time = c.getString(cStime)
-            val cEtime = c.getColumnIndex("e_time")
-            e_time = c.getString(cEtime)
-            val cMemo = c.getColumnIndex("memo")
-            memo = c.getString(cMemo)
-            val a = arrayListOf(title, s_time, e_time, memo)
-            myArray.add(a)
-            println(title)
-            println(s_time)
-            println(e_time)
-            println(memo)
+
+            val cId = c.getColumnIndex("_id")
+            val id1 = c.getLong(cId)
+            myArray.add(id1)
 
             while(c.moveToNext()){
 
-//                val cTitle = c.getColumnIndex("title")
-                title = c.getString(cTitle)
-//                val cStime = c.getColumnIndex("s_time")
-                s_time = c.getString(cStime)
-//                val cEtime = c.getColumnIndex("e_time")
-                e_time = c.getString(cEtime)
-//                val cMemo = c.getColumnIndex("memo")
-                memo = c.getString(cMemo)
-                val b = arrayListOf(title, s_time, e_time, memo)
-                myArray.add(b)
-                println(title)
-                println(s_time)
-                println(e_time)
-                println(memo)
+                val id2 = c.getLong(cId)
+                myArray.add(id2)
             }
         }
         else {
             println("予定なし")
         }
 
-        println(myArray)
+        println(myArray.distinct())
 
     }
 

@@ -4,6 +4,9 @@ plugins {
 
     //ナビゲーションのセーフアーギス
     id 'androidx.navigation.safeargs.kotlin'
+
+    //リストを渡すために必要なもの
+    id("kotlin-parcelize")
 }
 
 android {
