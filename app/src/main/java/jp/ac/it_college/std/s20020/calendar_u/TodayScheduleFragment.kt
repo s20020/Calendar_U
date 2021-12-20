@@ -33,6 +33,7 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
 
     var list = arrayListOf<List<String>>()
 
+
     val args: TodayScheduleFragmentArgs by navArgs()
 
 
@@ -117,7 +118,9 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
         }
         println(list)
 
-        val a = arrayOf("taiga", "akito", "ken")
+        val a = List<Map<String, String>>(2) { mapOf("title" to "library", "date" to "2-2")}
+
+        println(a)
 
         val viewManager = LinearLayoutManager(context)
         val viewAdapter = CustomAdapter(a)
