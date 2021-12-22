@@ -17,6 +17,7 @@ class StartFragment : Fragment() {
 
     var myArray = arrayListOf<Long>()
 
+
     var _id: Long = 0
 
     private var Year = ""
