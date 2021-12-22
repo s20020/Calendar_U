@@ -118,12 +118,22 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
         }
         println(list)
 
-        val a = List<Map<String, String>>(2) { mapOf("title" to "library", "date" to "2-2")}
+//        val a = List<Map<String, String>>(10) { mapOf("title" to "library", "date" to "2-2")}
+        val c = mutableListOf<Map<String, String>>()
 
-        println(a)
+        var ii = 0
+        while(ii < list.size) {
+            val map = mapOf<String, String>("title" to list[ii][0], "date" to "${list[ii][1]}〜${list[ii][2]}")
+            c.add(map)
+
+            ii++
+        }
+
+        println(c)
+
 
         val viewManager = LinearLayoutManager(context)
-        val viewAdapter = CustomAdapter(a)
+        val viewAdapter = CustomAdapter(c)
 
         binding.toDoList.layoutManager = viewManager
         binding.toDoList.adapter = viewAdapter
