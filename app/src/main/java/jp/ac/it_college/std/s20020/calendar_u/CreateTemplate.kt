@@ -62,21 +62,21 @@ class CreateTemplate : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         //NumberPickerの値をリストでセット
-        binding.sHour2.minValue = 0
-        binding.sHour2.maxValue = hour.size - 1
-        binding.sHour2.displayedValues = hour
+        binding.TsHour.minValue = 0
+        binding.TsHour.maxValue = hour.size - 1
+        binding.TsHour.displayedValues = hour
 
-        binding.sMinute2.minValue = 0
-        binding.sMinute2.maxValue = minute.size - 1
-        binding.sMinute2.displayedValues = minute
+        binding.TsMinute.minValue = 0
+        binding.TsMinute.maxValue = minute.size - 1
+        binding.TsMinute.displayedValues = minute
 
-        binding.eHour2.minValue = 0
-        binding.eHour2.maxValue = hour.size - 1
-        binding.eHour2.displayedValues = hour
+        binding.TeHour.minValue = 0
+        binding.TeHour.maxValue = hour.size - 1
+        binding.TeHour.displayedValues = hour
 
-        binding.eMinute2.minValue = 0
-        binding.eMinute2.maxValue = minute.size - 1
-        binding.eMinute2.displayedValues = minute
+        binding.TeMinute.minValue = 0
+        binding.TeMinute.maxValue = minute.size - 1
+        binding.TeMinute.displayedValues = minute
 
     }
 }

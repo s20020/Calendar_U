@@ -35,6 +35,9 @@
         <argument
             android:name="myArray"
             app:argType="long[]" />
+        <action
+            android:id="@+id/action_todayScheduleFragment_to_editFragment"
+            app:destination="@id/editFragment" />
     </dialog>
     <fragment
         android:id="@+id/newCreateFragment"
@@ -56,6 +59,9 @@
         <argument
             android:name="day"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_newCreateFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/newItemCreateFragment"
@@ -88,4 +94,9 @@
         android:name="jp.ac.it_college.std.s20020.calendar_u.CreateTemplate"
         android:label="fragment_create_template"
         tools:layout="@layout/fragment_create_template" />
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="jp.ac.it_college.std.s20020.calendar_u.EditFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" />
 </navigation>

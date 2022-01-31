@@ -15,7 +15,7 @@ import kotlin.math.ceil
 
 class StartFragment : Fragment() {
 
-    var myArray = arrayListOf<Long>()
+    var myArray = arrayListOf<Long>(0)
 
 
     var _id: Long = 0

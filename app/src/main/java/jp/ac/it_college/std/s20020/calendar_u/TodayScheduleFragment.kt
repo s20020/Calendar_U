@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.ListAdapter
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -63,6 +64,14 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
             navController.navigate(action)
         }
 
+        binding.toDoList.setOnClickListener {
+            // アクション
+            val action = TodayScheduleFragmentDirections.actionTodayScheduleFragmentToNewCreateFragment(year, month, day)
+            navController.navigate(action)
+        }
+
+
+
         //DatabaseHelperオブジェクトを生成
         _helper = DatabaseHelper(requireContext())
         databaseSelect()
@@ -87,8 +96,6 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
         val db = _helper.writableDatabase
 
         val myArray = args.myArray
-
-
 
         var i = 0
         while(i < myArray.size) {
@@ -142,5 +149,24 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
 
 
     }
+
+    fun databaseUpdate() {
+        val db = _helper.writableDatabase
+
+        val myArray = args.myArray
+
+
+    }
+
+    fun databaseDelete() {
+        val db = _helper.writableDatabase
+
+        val delete = """
+            DELETE FROM SCHEDULE
+            WHERE _id = ${4}
+        """.trimIndent()
+    }
+
+
 
 }

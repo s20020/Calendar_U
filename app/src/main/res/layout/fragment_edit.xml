@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateTemplate">
-
+    tools:context=".EditFragment">
 
     <Button
-        android:id="@+id/Tback"
+        android:id="@+id/Eback"
         android:layout_width="79dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
@@ -18,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Ttitle2"
+        android:id="@+id/Etitle"
         android:layout_width="261dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
@@ -27,7 +26,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Tback" />
+        app:layout_constraintTop_toBottomOf="@+id/Eback" />
 
     <Button
         android:id="@+id/type2"
@@ -37,10 +36,10 @@
         android:text="種類"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ttitle2" />
+        app:layout_constraintTop_toBottomOf="@+id/Etitle" />
 
     <EditText
-        android:id="@+id/Tmemo"
+        android:id="@+id/Ememo"
         android:layout_width="364dp"
         android:layout_height="99dp"
         android:layout_marginStart="16dp"
@@ -54,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/FinishedText" />
 
     <Button
-        android:id="@+id/Tok"
+        android:id="@+id/Eok"
         android:layout_width="71dp"
         android:layout_height="53dp"
         android:layout_marginTop="8dp"
@@ -64,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <NumberPicker
-        android:id="@+id/TsHour"
+        android:id="@+id/EsHour"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/StartText"
@@ -72,7 +71,7 @@
         app:layout_constraintTop_toTopOf="@+id/StartText" />
 
     <NumberPicker
-        android:id="@+id/TsMinute"
+        android:id="@+id/EsMinute"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/TextBold"
@@ -80,7 +79,7 @@
         app:layout_constraintTop_toTopOf="@+id/TextBold" />
 
     <NumberPicker
-        android:id="@+id/TeHour"
+        android:id="@+id/EeHour"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/FinishedText"
@@ -88,7 +87,7 @@
         app:layout_constraintTop_toTopOf="@+id/FinishedText" />
 
     <NumberPicker
-        android:id="@+id/TeMinute"
+        android:id="@+id/EeMinute"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/TextBold2"
@@ -103,9 +102,9 @@
         android:textAlignment="center"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/TsHour"
-        app:layout_constraintStart_toEndOf="@+id/TsHour"
-        app:layout_constraintTop_toTopOf="@+id/TsHour" />
+        app:layout_constraintBottom_toBottomOf="@+id/EsHour"
+        app:layout_constraintStart_toEndOf="@+id/EsHour"
+        app:layout_constraintTop_toTopOf="@+id/EsHour" />
 
     <TextView
         android:id="@+id/TextBold2"
@@ -115,9 +114,9 @@
         android:textAlignment="center"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/TeHour"
-        app:layout_constraintStart_toEndOf="@+id/TeHour"
-        app:layout_constraintTop_toTopOf="@+id/TeHour" />
+        app:layout_constraintBottom_toBottomOf="@+id/EeHour"
+        app:layout_constraintStart_toEndOf="@+id/EeHour"
+        app:layout_constraintTop_toTopOf="@+id/EeHour" />
 
     <TextView
         android:id="@+id/StartText"
@@ -143,6 +142,7 @@
         app:layout_constraintEnd_toEndOf="@+id/StartText"
         app:layout_constraintStart_toStartOf="@+id/StartText"
         app:layout_constraintTop_toBottomOf="@+id/StartText" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

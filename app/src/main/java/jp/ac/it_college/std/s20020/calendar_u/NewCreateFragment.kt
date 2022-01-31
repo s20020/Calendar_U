@@ -31,7 +31,7 @@ class NewCreateFragment : Fragment() {
     var e_time = ""
     var memo = ""
 
-    val args: TodayScheduleFragmentArgs by navArgs()
+    val args: NewCreateFragmentArgs by navArgs()
 
 
     private lateinit var _helper: DatabaseHelper
@@ -45,7 +45,6 @@ class NewCreateFragment : Fragment() {
     ): View? {
         _binding = FragmentNewCreateBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
 
@@ -83,6 +82,9 @@ class NewCreateFragment : Fragment() {
             dateInsert(insert)
             findNavController().popBackStack()
 
+
+
+
         }
 
         binding.Back.setOnClickListener{
@@ -113,9 +115,14 @@ class NewCreateFragment : Fragment() {
         editor.putLong("INDEX", a)
         editor.apply()
 
+        println(a)
+
+
         //month,dayを０で穴埋め
         val month = args.month.toString().padStart(2,'0')
         val day = args.day.toString().padStart(2,'0')
+
+
 
         //データベース各項目の値を取得
         _id = a
@@ -142,8 +149,6 @@ class NewCreateFragment : Fragment() {
 
         //データベースへのinsert実行。
         stmt.executeInsert()
-
-
     }
 
 
