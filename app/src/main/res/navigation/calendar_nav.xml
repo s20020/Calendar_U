@@ -35,9 +35,6 @@
         <argument
             android:name="myArray"
             app:argType="long[]" />
-        <action
-            android:id="@+id/action_todayScheduleFragment_to_editFragment"
-            app:destination="@id/editFragment" />
     </dialog>
     <fragment
         android:id="@+id/newCreateFragment"

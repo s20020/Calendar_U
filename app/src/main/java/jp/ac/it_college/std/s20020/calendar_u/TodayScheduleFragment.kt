@@ -142,8 +142,20 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
         val viewManager = LinearLayoutManager(context)
         val viewAdapter = CustomAdapter(c)
 
+        viewAdapter.setCallback {
+            // NavHostの取得
+            val navHostFragment =
+                requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            // NavController取得
+            val navController = navHostFragment.navController
+            // アクション
+            val action = TodayScheduleFragmentDirections.actionTodayScheduleFragmentToNewCreateFragment(year, month, day)
+            navController.navigate(action)
+        }
+
         binding.toDoList.layoutManager = viewManager
         binding.toDoList.adapter = viewAdapter
+
 
 
 
@@ -166,7 +178,4 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
             WHERE _id = ${4}
         """.trimIndent()
     }
-
-
-
 }

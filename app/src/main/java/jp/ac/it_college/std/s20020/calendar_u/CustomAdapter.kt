@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CustomAdapter(val dataSet: List<Map<String, String>>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
+
+
+    private var navCallback: (Int) -> Unit = {}
+
     init {
         setHasStableIds(true)
     }
-
-
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view){
         val title: TextView = view.findViewById(android.R.id.text1)
@@ -27,24 +29,23 @@ class CustomAdapter(val dataSet: List<Map<String, String>>) : RecyclerView.Adapt
     }
 
     //指定された位置にデータを表示するため呼び出される。
-    override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int)  {
 
         holder.title.text = dataSet[position]["title"]
         holder.data.text = dataSet[position]["date"]
 
 
-
         holder.itemView.setOnClickListener {
+            navCallback(position)
             println(position)
 
-            
         }
     }
 
     override fun getItemCount() : Int = dataSet.size
 
-    fun itemClick(position: Int) {
-
+    fun setCallback(func: (Int) -> Unit) {
+        navCallback = func
     }
 
 
