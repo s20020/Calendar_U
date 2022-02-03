@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/FinishedText" />
 
     <Button
-        android:id="@+id/Eok"
+        android:id="@+id/update"
         android:layout_width="71dp"
         android:layout_height="53dp"
         android:layout_marginTop="8dp"

@@ -23,7 +23,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
             memo TEXT
             );
         """.trimIndent()
-
         db?.execSQL(creatTable_main)
     }
 

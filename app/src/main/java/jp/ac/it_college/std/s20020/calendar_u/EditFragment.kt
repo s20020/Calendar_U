@@ -1,5 +1,6 @@
 package jp.ac.it_college.std.s20020.calendar_u
 
+import android.content.ContentValues
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -69,6 +70,10 @@ class EditFragment : Fragment() {
         //DatabaseHelperオブジェクトを生成
         _helper = DatabaseHelper(requireContext())
 
+        binding.update.setOnClickListener{
+            databaseUpdate()
+        }
+
 
         binding.Eback.setOnClickListener {
             findNavController().popBackStack()
@@ -119,7 +124,21 @@ class EditFragment : Fragment() {
     }
 
     fun databaseUpdate() {
-        
+        val values = ContentValues()
+        val title = binding.Etitle.text.toString()
+        val memo = binding.Ememo.text.toString()
+
+        val s_time = "${hour[binding.EsHour.value]}:${minute[binding.EsMinute.value]}"
+        val e_time = "${hour[binding.EeHour.value]}:${minute[binding.EeMinute.value]}"
+
+        values.put("title", title)
+        values.put("memo", memo)
+        values.put("s_time", s_time)
+        values.put("e_time", e_time)
+
+        val db = _helper.writableDatabase
+        db.update("SCHEDULE", values, "_id = ?", arrayOf(args.id.toString()))
+        findNavController().popBackStack()
     }
 
 
