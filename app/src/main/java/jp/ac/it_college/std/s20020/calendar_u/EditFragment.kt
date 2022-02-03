@@ -42,6 +42,13 @@ class EditFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+        binding.delete.setOnClickListener{
+            databaseDelete()
+        }
+
+
         //NumberPickerの値をリストでセット
         binding.EsHour.minValue = 0
         binding.EsHour.maxValue = hour.size - 1
@@ -103,6 +110,16 @@ class EditFragment : Fragment() {
     override fun onDestroy() {
         _helper.close()
         super.onDestroy()
+    }
+
+    fun databaseDelete() {
+        val db = _helper.writableDatabase
+        db.delete("SCHEDULE", "_id = ?", arrayOf(args.id.toString()))
+        findNavController().popBackStack()
+    }
+
+    fun databaseUpdate() {
+        
     }
 
 
