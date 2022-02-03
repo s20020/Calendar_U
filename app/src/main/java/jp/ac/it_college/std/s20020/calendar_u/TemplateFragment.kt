@@ -28,13 +28,12 @@ class TemplateFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentTemplateBinding.inflate(inflater,container,false)
         return binding.root
-
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.AddTemplate.setOnClickListener {
-            findNavController().navigate(R.id.action_templateFragment_to_createTemplate)
+
         }
     }
 }

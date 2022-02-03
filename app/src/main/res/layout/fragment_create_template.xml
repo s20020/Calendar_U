@@ -19,8 +19,8 @@
 
     <EditText
         android:id="@+id/Ttitle2"
-        android:layout_width="261dp"
-        android:layout_height="52dp"
+        android:layout_width="234dp"
+        android:layout_height="46dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="題名"
@@ -143,6 +143,16 @@
         app:layout_constraintEnd_toEndOf="@+id/StartText"
         app:layout_constraintStart_toStartOf="@+id/StartText"
         app:layout_constraintTop_toBottomOf="@+id/StartText" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="71dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

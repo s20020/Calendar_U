@@ -64,12 +64,6 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
             navController.navigate(action)
         }
 
-        binding.toDoList.setOnClickListener {
-            // アクション
-            val action = TodayScheduleFragmentDirections.actionTodayScheduleFragmentToNewCreateFragment(year, month, day)
-            navController.navigate(action)
-        }
-
 
 
         //DatabaseHelperオブジェクトを生成
@@ -96,6 +90,7 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
         val db = _helper.writableDatabase
 
         val myArray = args.myArray
+
 
         var i = 0
         while(i < myArray.size) {
@@ -139,17 +134,22 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
         println(c)
 
 
+
         val viewManager = LinearLayoutManager(context)
         val viewAdapter = CustomAdapter(c)
 
-        viewAdapter.setCallback {
+        //リストの中身がタップされたら、更新・削除画面へ遷移
+        //次画面へは、タップされたもののデータベースのIDをわたす。
+        viewAdapter.setCallback{
+            println(myArray.distinct())
+            println(it)
             // NavHostの取得
             val navHostFragment =
                 requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
             // NavController取得
             val navController = navHostFragment.navController
             // アクション
-            val action = TodayScheduleFragmentDirections.actionTodayScheduleFragmentToNewCreateFragment(year, month, day)
+            val action = TodayScheduleFragmentDirections.actionTodayScheduleFragmentToEditFragment(myArray.distinct()[it])
             navController.navigate(action)
         }
 

@@ -87,13 +87,11 @@ class NewCreateFragment : Fragment() {
 
         }
 
+        //戻るボタン
         binding.Back.setOnClickListener{
             findNavController().popBackStack()
         }
 
-        binding.Usually.setOnClickListener {
-            findNavController().navigate(R.id.action_newCreateFragment_to_templateFragment)
-        }
 
     }
 

@@ -102,7 +102,7 @@ class StartFragment : Fragment() {
             println("予定なし")
         }
 
-        println(myArray.distinct())
+
 
 
 

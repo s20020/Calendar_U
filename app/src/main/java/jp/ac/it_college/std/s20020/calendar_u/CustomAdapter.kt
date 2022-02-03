@@ -36,8 +36,8 @@ class CustomAdapter(val dataSet: List<Map<String, String>>) : RecyclerView.Adapt
 
 
         holder.itemView.setOnClickListener {
-            navCallback(position)
             println(position)
+            navCallback(position)
 
         }
     }
