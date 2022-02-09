@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentNewCreateBinding
@@ -90,6 +91,19 @@ class NewCreateFragment : Fragment() {
         //戻るボタン
         binding.Back.setOnClickListener{
             findNavController().popBackStack()
+        }
+
+        binding.SelectTemplete.setOnClickListener{
+            // NavHostの取得
+            val navHostFragment =
+                requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            // NavController取得
+            val navController = navHostFragment.navController
+
+            //アクション
+            val action = NewCreateFragmentDirections.actionNewCreateFragmentToTemplateFragment()
+            navController.navigate(action)
+
         }
 
 

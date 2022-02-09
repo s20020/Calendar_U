@@ -58,6 +58,8 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
         // NavController取得
         val navController = navHostFragment.navController
 
+        println(args.myArray)
+
         binding.newCreate.setOnClickListener {
             //アクション
             val action = TodayScheduleFragmentDirections.actionTodayScheduleFragmentToNewCreateFragment(year, month, day)
@@ -155,27 +157,6 @@ class TodayScheduleFragment : BottomSheetDialogFragment() {
 
         binding.toDoList.layoutManager = viewManager
         binding.toDoList.adapter = viewAdapter
-
-
-
-
-
     }
 
-    fun databaseUpdate() {
-        val db = _helper.writableDatabase
-
-        val myArray = args.myArray
-
-
-    }
-
-    fun databaseDelete() {
-        val db = _helper.writableDatabase
-
-        val delete = """
-            DELETE FROM SCHEDULE
-            WHERE _id = ${4}
-        """.trimIndent()
-    }
 }

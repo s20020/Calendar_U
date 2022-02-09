@@ -33,23 +33,14 @@
         android:id="@+id/Name"
         android:layout_width="261dp"
         android:layout_height="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="題名"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Back" />
-
-    <Button
-        android:id="@+id/type"
-        android:layout_width="204dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:text="種類"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Name" />
 
     <EditText
         android:id="@+id/Memo"
@@ -67,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/Usually"
+        android:id="@+id/SelectTemplete"
         android:layout_width="193dp"
         android:layout_height="55dp"
         android:layout_marginTop="28dp"
@@ -147,13 +138,13 @@
         android:id="@+id/textView4"
         android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="68dp"
         android:text="開始時間"
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type" />
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
 
     <TextView
         android:id="@+id/textView5"

@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_newCreateFragment_to_startFragment"
             app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_newCreateFragment_to_templateFragment"
+            app:destination="@id/templateFragment" />
     </fragment>
     <fragment
         android:id="@+id/editFragment"
@@ -66,4 +69,18 @@
             android:name="id"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/templateFragment"
+        android:name="jp.ac.it_college.std.s20020.calendar_u.TemplateFragment"
+        android:label="fragment_template"
+        tools:layout="@layout/fragment_template" >
+        <action
+            android:id="@+id/action_templateFragment_to_createTemplate"
+            app:destination="@id/createTemplate" />
+    </fragment>
+    <fragment
+        android:id="@+id/createTemplate"
+        android:name="jp.ac.it_college.std.s20020.calendar_u.CreateTemplate"
+        android:label="fragment_create_template"
+        tools:layout="@layout/fragment_create_template" />
 </navigation>

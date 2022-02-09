@@ -24,6 +24,19 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
             );
         """.trimIndent()
         db?.execSQL(creatTable_main)
+
+        val creatTable_template = """
+            CREATE TABLE TEMPLATE (
+            _id LONG,
+            title TEXT,
+            s_time TEXT,
+            e_time TEXT,
+            memo TEXT
+            );
+        """.trimIndent()
+        db?.execSQL(creatTable_template)
+
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

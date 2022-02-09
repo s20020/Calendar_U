@@ -20,23 +20,13 @@
         android:id="@+id/Etitle"
         android:layout_width="261dp"
         android:layout_height="52dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="題名"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Eback" />
-
-    <Button
-        android:id="@+id/type2"
-        android:layout_width="204dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:text="種類"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Etitle" />
 
     <EditText
         android:id="@+id/Ememo"
@@ -123,12 +113,12 @@
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="92dp"
         android:text="開始時間"
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type2" />
+        app:layout_constraintTop_toBottomOf="@+id/Etitle" />
 
     <TextView
         android:id="@+id/FinishedText"
