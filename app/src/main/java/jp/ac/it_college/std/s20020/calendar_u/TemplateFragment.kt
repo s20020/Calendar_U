@@ -1,6 +1,7 @@
 package jp.ac.it_college.std.s20020.calendar_u
 
 import android.app.ActionBar
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,8 +24,6 @@ class TemplateFragment : Fragment(){
 
 
 
-
-    
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,8 +48,12 @@ class TemplateFragment : Fragment(){
             val action = TemplateFragmentDirections.actionTemplateFragmentToCreateTemplate()
             navController.navigate(action)
 
+        }
 
-
+        binding.tBack.setOnClickListener{
+            findNavController().popBackStack()
         }
     }
+
+
 }

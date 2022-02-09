@@ -1,5 +1,6 @@
 package jp.ac.it_college.std.s20020.calendar_u
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentCreateTemplateBinding
 
 class CreateTemplate : Fragment() {
+
+    private lateinit var _helper: DatabaseHelper
 
     private var _binding: FragmentCreateTemplateBinding? = null
     private val binding get() = _binding!!
@@ -49,8 +52,8 @@ class CreateTemplate : Fragment() {
         "22",
         "23"
     )
+
     var _id: Long = 0
-    var date = ""
     var title = ""
     var s_time = ""
     var e_time = ""
@@ -77,6 +80,66 @@ class CreateTemplate : Fragment() {
         binding.TeMinute.minValue = 0
         binding.TeMinute.maxValue = minute.size - 1
         binding.TeMinute.displayedValues = minute
+
+        val insert = """
+            INSERT INTO TEMPLATE
+            (_id, title, s_time, e_time, memo)
+            VALUES(?, ?, ?, ?, ?)
+        """.trimIndent()
+
+
+        //DatabaseHelperオブジェクトを生成
+        _helper = DatabaseHelper(requireContext())
+
+        binding.Tapply.setOnClickListener{
+            dataInsert(insert)
+            findNavController().popBackStack()
+        }
+
+
+
+    }
+
+    override fun onDestroy() {
+        //DBヘルパーオブジェクトの解放
+        _helper.close()
+        super.onDestroy()
+    }
+
+
+    //新しく作成したテンプレートをデータベースに格納
+    fun dataInsert(insert: String) {
+        //_idの連番のための保存領域インスタンスを生成。
+        val sharedPref = this.requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        //insertが実行されるたびに_idを+1
+        val a = sharedPref.getLong("INDEX_P", 0).plus(1)
+        editor.putLong("INDEX_P", a)
+        editor.apply()
+
+        _id = a
+        title = binding.TTitle.text.toString()
+        s_time = "${hour[binding.TsHour.value]}:${minute[binding.TsMinute.value]}"
+        e_time = "${hour[binding.TeHour.value]}:${minute[binding.TeMinute.value]}"
+        memo = binding.Tmemo.text.toString()
+
+        //データベース接続オブジェクトを取得
+        val db = _helper.writableDatabase
+
+
+        //SQL文字列をもとにプリペアドステートメントを取得
+        val stmt = db.compileStatement(insert)
+
+
+        stmt.bindLong(1, _id)
+        stmt.bindString(2, title)
+        stmt.bindString(3, s_time)
+        stmt.bindString(4,e_time)
+        stmt.bindString(5, memo)
+
+        //データベースへのinsert実行。
+        stmt.executeInsert()
 
     }
 }

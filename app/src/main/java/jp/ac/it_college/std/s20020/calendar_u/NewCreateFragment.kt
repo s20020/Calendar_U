@@ -151,7 +151,7 @@ class NewCreateFragment : Fragment() {
         //SQL文字列をもとにプリペアドステートメントを取得
         val stmt = db.compileStatement(insert)
 
-        //
+
         stmt.bindLong(1, _id)
         stmt.bindString(2, date)
         stmt.bindString(3, title)

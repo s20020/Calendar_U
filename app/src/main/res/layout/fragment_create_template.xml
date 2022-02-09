@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Ttitle2"
+        android:id="@+id/TTitle"
         android:layout_width="234dp"
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
@@ -28,16 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Tback" />
-
-    <Button
-        android:id="@+id/type2"
-        android:layout_width="204dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:text="種類"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ttitle2" />
 
     <EditText
         android:id="@+id/Tmemo"
@@ -54,12 +44,12 @@
         app:layout_constraintTop_toBottomOf="@+id/FinishedText" />
 
     <Button
-        android:id="@+id/Tok"
+        android:id="@+id/Tapply"
         android:layout_width="71dp"
         android:layout_height="53dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="保存"
+        android:text="追加"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,7 +59,8 @@
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/StartText"
         app:layout_constraintStart_toEndOf="@+id/StartText"
-        app:layout_constraintTop_toTopOf="@+id/StartText" />
+        app:layout_constraintTop_toTopOf="@+id/StartText"
+        app:layout_constraintVertical_bias="0.511" />
 
     <NumberPicker
         android:id="@+id/TsMinute"
@@ -124,12 +115,12 @@
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="88dp"
         android:text="開始時間"
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type2" />
+        app:layout_constraintTop_toBottomOf="@+id/TTitle" />
 
     <TextView
         android:id="@+id/FinishedText"
