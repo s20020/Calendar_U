@@ -12,6 +12,7 @@ class CustomAdapter(val dataSet: List<Map<String, String>>) : RecyclerView.Adapt
 
 
     private var navCallback: (Int) -> Unit = {}
+    private var navDelete: (Int) -> Unit = {}
 
     init {
         setHasStableIds(true)
@@ -36,9 +37,12 @@ class CustomAdapter(val dataSet: List<Map<String, String>>) : RecyclerView.Adapt
 
 
         holder.itemView.setOnClickListener {
-            println(position)
             navCallback(position)
+        }
 
+        holder.itemView.setOnLongClickListener{
+            navDelete(position)
+            true
         }
     }
 
@@ -46,6 +50,11 @@ class CustomAdapter(val dataSet: List<Map<String, String>>) : RecyclerView.Adapt
 
     fun setCallback(func: (Int) -> Unit) {
         navCallback = func
+    }
+
+    //長押しした時の操作
+    fun setDelete(func: (Int) -> Unit) {
+        navDelete = func
     }
 
 

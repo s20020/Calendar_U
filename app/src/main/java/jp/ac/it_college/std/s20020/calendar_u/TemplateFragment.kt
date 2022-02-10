@@ -135,6 +135,10 @@ class TemplateFragment : Fragment(){
         binding.tempList.layoutManager = viewManager
         binding.tempList.adapter = viewAdapter
 
+        viewAdapter.setDelete {
+            println("iiiiiiii")
+        }
+
         viewAdapter.setCallback {
             databaseInsert(it)
         }
@@ -187,6 +191,20 @@ class TemplateFragment : Fragment(){
 
         //データベースへのinsert実行。
         stmt.executeInsert()
+
+        backback()
+    }
+
+    fun backback(){
+        // NavHostの取得
+        val navHostFragment =
+            requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        // NavController取得
+        val navController = navHostFragment.navController
+
+        //アクション
+        val action = TemplateFragmentDirections.actionTemplateFragmentToStartFragment()
+        navController.navigate(action)
     }
 
 
