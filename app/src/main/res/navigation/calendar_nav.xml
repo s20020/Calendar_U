@@ -77,6 +77,15 @@
         <action
             android:id="@+id/action_templateFragment_to_createTemplate"
             app:destination="@id/createTemplate" />
+        <argument
+            android:name="year"
+            app:argType="integer" />
+        <argument
+            android:name="month"
+            app:argType="integer" />
+        <argument
+            android:name="day"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/createTemplate"

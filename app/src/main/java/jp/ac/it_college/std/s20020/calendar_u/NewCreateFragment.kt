@@ -101,7 +101,7 @@ class NewCreateFragment : Fragment() {
             val navController = navHostFragment.navController
 
             //アクション
-            val action = NewCreateFragmentDirections.actionNewCreateFragmentToTemplateFragment()
+            val action = NewCreateFragmentDirections.actionNewCreateFragmentToTemplateFragment(args.year, args.month, args.day)
             navController.navigate(action)
 
         }

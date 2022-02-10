@@ -96,6 +96,10 @@ class CreateTemplate : Fragment() {
             findNavController().popBackStack()
         }
 
+        binding.Tback.setOnClickListener{
+            findNavController().popBackStack()
+        }
+
 
 
     }
