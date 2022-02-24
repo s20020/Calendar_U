@@ -103,6 +103,9 @@ class TemplateFragment : Fragment(){
     }
 
     fun templateShow() {
+        //リストを空にする。　
+        list.clear()
+
         val db = _helper.writableDatabase
 
 
@@ -155,8 +158,8 @@ class TemplateFragment : Fragment(){
         binding.tempList.adapter = viewAdapter
 
         viewAdapter.setDelete {
-            println("iiiiiiii")
             position = it
+            println(position)
 
             val dialog = DeleteFragment()
             dialog.show(childFragmentManager, "simple")
@@ -239,8 +242,7 @@ class TemplateFragment : Fragment(){
 
         val db = _helper.writableDatabase
         db.delete("TEMPLATE", "_id = ?", arrayOf(list[position][0]))
-        list.removeAt(position)
-        binding.tempList.adapter?.notifyDataSetChanged()
+//        binding.tempList.adapter?.notifyDataSetChanged()
     }
 
 
