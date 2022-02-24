@@ -1,20 +1,19 @@
 package jp.ac.it_college.std.s20020.calendar_u
 
-import android.app.ActionBar
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.SupportActionModeWrapper
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentNewCreateBinding
 import jp.ac.it_college.std.s20020.calendar_u.databinding.FragmentTemplateBinding
-import kotlin.io.path.createTempDirectory
 
 class TemplateFragment : Fragment(){
     private lateinit var _helper: DatabaseHelper
@@ -30,6 +29,8 @@ class TemplateFragment : Fragment(){
     var e_time = ""
     var memo = ""
 
+    var position = 0
+
     //データをスケジュールデータベースに格納する命令。
     val insert = """
             INSERT INTO SCHEDULE
@@ -40,6 +41,24 @@ class TemplateFragment : Fragment(){
     var list = arrayListOf<List<String>>()
 
     val args: TemplateFragmentArgs by navArgs()
+    class DeleteFragment : DialogFragment() {
+        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("確認")
+                .setMessage("選択したテンプレートを削除")
+                .setPositiveButton("OK") { dialog, id ->
+                    val parent = requireParentFragment()
+                    if (parent is TemplateFragment){
+                        parent.templateDelete()
+                    }
+                }
+                .setNegativeButton("cancel") { dialog, id ->
+
+                }
+
+            return builder.create()
+        }
+    }
 
 
     override fun onCreateView(
@@ -137,7 +156,16 @@ class TemplateFragment : Fragment(){
 
         viewAdapter.setDelete {
             println("iiiiiiii")
+            position = it
+
+            val dialog = DeleteFragment()
+            dialog.show(childFragmentManager, "simple")
+
+
+
         }
+
+
 
         viewAdapter.setCallback {
             databaseInsert(it)
@@ -205,6 +233,14 @@ class TemplateFragment : Fragment(){
         //アクション
         val action = TemplateFragmentDirections.actionTemplateFragmentToStartFragment()
         navController.navigate(action)
+    }
+
+    fun templateDelete() {
+
+        val db = _helper.writableDatabase
+        db.delete("TEMPLATE", "_id = ?", arrayOf(list[position][0]))
+        list.removeAt(position)
+        binding.tempList.adapter?.notifyDataSetChanged()
     }
 
 

@@ -141,5 +141,4 @@ class EditFragment : Fragment() {
         findNavController().popBackStack()
     }
 
-
 }
